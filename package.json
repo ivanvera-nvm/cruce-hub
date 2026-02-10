@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest run",
+    "dev": "infisical run -- bun --bun vite dev --port 3000",
+    "build": "infisical run -- bun --bun vite build",
+    "preview": "infisical run -- bun --bun vite preview",
+    "test": "infisical run -- bun --bun vitest run",
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check"
@@ -30,7 +30,7 @@
     "react-dom": "^19.2.4",
     "tailwindcss": "^4.1.18",
     "vite-tsconfig-paths": "^6.1.0",
-    "zod": "4.3.6"
+    "zod": "4.2.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.14",
