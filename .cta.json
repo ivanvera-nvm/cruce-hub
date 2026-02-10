@@ -1,0 +1,21 @@
+{
+  "projectName": "cruce-hub",
+  "mode": "file-router",
+  "typescript": true,
+  "tailwind": true,
+  "packageManager": "bun",
+  "git": true,
+  "install": true,
+  "addOnOptions": {},
+  "version": 1,
+  "framework": "react-cra",
+  "chosenAddOns": [
+    "tanstack-query",
+    "t3env",
+    "biome",
+    "start",
+    "mcp",
+    "better-auth",
+    "nitro"
+  ]
+}
