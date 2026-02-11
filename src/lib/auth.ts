@@ -27,7 +27,7 @@ export const auth = betterAuth({
 			clientId: googleClientId,
 			clientSecret: googleClientSecret,
 			hd: allowedEmailDomain,
-			disableSignUp: false,
+			disableSignUp: true,
 		},
 	},
 	databaseHooks: {
