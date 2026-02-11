@@ -1,35 +1,33 @@
 import { Link } from "@tanstack/react-router";
 
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { authClient } from "@/lib/auth-client";
 
 export default function BetterAuthHeader() {
-	const { data: session, isPending } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
 
-	if (isPending) {
-		return <div className="h-8 w-20 animate-pulse rounded bg-neutral-100" />;
-	}
+  if (isPending) {
+    return <Skeleton className="h-8 w-24" />;
+  }
 
-	if (session?.user) {
-		return (
-			<div className="flex items-center gap-3">
-				<span className="text-xs text-neutral-600">{session.user.email}</span>
-				<button
-					type="button"
-					onClick={() => authClient.signOut()}
-					className="h-8 rounded border border-neutral-300 px-3 text-xs font-medium text-neutral-700 hover:bg-neutral-50"
-				>
-					Salir
-				</button>
-			</div>
-		);
-	}
+  if (session?.user) {
+    return (
+      <div className="flex items-center gap-3">
+        <span className="text-xs text-muted-foreground">{session.user.email}</span>
+        <Button type="button" variant="outline" size="sm" onClick={() => authClient.signOut()}>
+          Salir
+        </Button>
+      </div>
+    );
+  }
 
-	return (
-		<Link
-			to="/login"
-			className="inline-flex h-8 items-center rounded border border-neutral-300 px-3 text-xs font-medium text-neutral-700 hover:bg-neutral-50"
-		>
-			Ingresar
-		</Link>
-	);
+  return (
+    <Link
+      to="/login"
+      className="inline-flex h-9 items-center justify-center rounded-md border border-input bg-background px-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+    >
+      Ingresar
+    </Link>
+  );
 }
